@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abhishek Malviy – Projects</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--fg:#17181c;--mut:#5b6070;--bd:#e1e4ea;--a:#2f6bff;--b:#12a37f;--c:#f0a02a;--g:#b4b9c6;--soft:#eaf0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121317;--card:#1b1d23;--fg:#f0f1f5;--mut:#9ca2b2;--bd:#2b2e37;--a:#6f98ff;--b:#35c9a3;--c:#f5b550;--g:#5b6070;--soft:#222a42}}
+:root[data-theme="dark"]{--bg:#121317;--card:#1b1d23;--fg:#f0f1f5;--mut:#9ca2b2;--bd:#2b2e37;--a:#6f98ff;--b:#35c9a3;--c:#f5b550;--g:#5b6070;--soft:#222a42}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;padding:24px 14px 40px}
+.wrap{max-width:900px;margin:0 auto}
+header{text-align:center;margin-bottom:26px}
+h1{font-size:1.7rem;margin:0 0 4px}
+header p{margin:0;color:var(--mut)}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;color:var(--b);margin-top:8px;font-weight:600}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--b)}
+@keyframes blink{50%{opacity:.2}}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px;margin-bottom:20px}
+.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+h2{font-size:1.1rem;margin:0}
+.date{color:var(--mut);font-size:.85rem}
+.sub{color:var(--mut);margin:4px 0 16px;font-size:.92rem}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.st{flex:1 1 100px;border:1px solid var(--bd);border-radius:10px;padding:8px 10px;font-size:.82rem;font-weight:600;text-align:center}
+.on .st{animation:lit var(--d) infinite;animation-delay:calc(var(--i)*var(--s))}
+@keyframes lit{0%,13%{background:var(--soft);border-color:var(--a);transform:translateY(-3px)}18%,100%{background:transparent;border-color:var(--bd);transform:none}}
+.track{height:4px;border-radius:2px;background:var(--bd);position:relative;overflow:hidden;margin:0 0 16px}
+.track b{position:absolute;top:0;left:0;height:100%;width:22%;border-radius:2px;background:var(--a)}
+.on .track b{animation:run var(--d) linear infinite}
+@keyframes run{from{left:-22%}to{left:100%}}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:0 0 12px}
+.vis{background:var(--bg);border-radius:10px;padding:10px}
+.vis h3{font-size:.72rem;font-weight:600;color:var(--mut);margin:0 0 6px;text-transform:uppercase;letter-spacing:.04em}
+svg{width:100%;height:auto;display:block}
+.tx{fill:var(--mut);font-size:10px}
+.tag{display:inline-block;font-size:.76rem;padding:3px 10px;border-radius:20px;background:var(--soft);color:var(--a);margin:0 6px 6px 0;font-weight:600}
+.on .dr{animation:drift 4s ease-in-out infinite;animation-delay:calc(var(--i)*-.5s)}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(var(--dx),var(--dy))}}
+.syn{transform-box:fill-box;transform-origin:center}
+.on .syn{animation:pop 4s ease-in-out infinite;animation-delay:calc(var(--i)*.3s)}
+@keyframes pop{0%,15%{opacity:0;transform:scale(.3)}35%,85%{opacity:1;transform:scale(1)}100%{opacity:0}}
+.ln2{stroke-dasharray:1;stroke-dashoffset:0}
+.on .ln2{animation:draw2 5s ease-in-out infinite}
+@keyframes draw2{0%{stroke-dashoffset:1}60%,90%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+.on .nd{animation:pulse 2.4s ease-in-out infinite;animation-delay:calc(var(--l)*.6s)}
+@keyframes pulse{0%,100%{opacity:.3}20%{opacity:1}}
+.bar{transform-box:fill-box;transform-origin:bottom}
+.on .bar{animation:grow 5s ease-in-out infinite;animation-delay:calc(var(--i)*.2s)}
+@keyframes grow{0%{transform:scaleY(0)}25%,85%{transform:scaleY(1)}100%{transform:scaleY(0)}}
+.spin{transform-origin:130px 65px}
+.on .spin{animation:rot 14s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.mb{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--mut);margin:0 0 9px}
+.mb span{width:62px}
+.mb div{flex:1;height:8px;background:var(--bd);border-radius:4px;overflow:hidden}
+.mb i{display:block;height:100%;background:var(--a);border-radius:4px;width:70%}
+.on .mb i{animation:fillw var(--t) ease-in-out infinite}
+@keyframes fillw{0%{width:0}70%,90%{width:100%}100%{width:0}}
+.sm{display:flex;align-items:flex-end;gap:4px;height:90px}
+.sm i{flex:1;background:var(--g);border-radius:3px 3px 0 0;height:10%;transition:height .8s,background .8s}
+.sm i.w{background:var(--c)}
+.pred{font-size:.82rem;margin-top:6px;color:var(--fg);font-weight:600}
+.kp{display:grid;gap:8px}
+.kp div{background:var(--card);border-radius:8px;padding:8px 10px;font-size:.74rem;color:var(--mut)}
+.kp b{display:block;font-size:1.15rem;color:var(--fg)}
+.unit{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.unit::after{content:"▶ tap to play";position:absolute;top:8px;right:10px;font-size:.68rem;font-weight:600;color:var(--a)}
+.unit.on::after{content:"■ playing";color:var(--b)}
+.pre{padding-top:18px;margin:0 0 16px}
+.pre::after{top:0;right:0}
+.pre .track{margin:0}
+.vis.unit{padding-bottom:26px}
+.vis.unit::after{top:auto;bottom:7px}
+footer{text-align:center;color:var(--mut);font-size:.78rem;margin-top:10px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.track b{left:0}.bar{transform:none}.ln2{stroke-dashoffset:0}.syn{opacity:1}}
+</style></head><body><div class="wrap">
+<header><h1>Abhishek Malviy</h1><p>Data Analytics &amp; Machine Learning projects</p><span class="live"><i></i>Tap any panel to play its animation</span></header>
+
+<section class="card"><div class="top"><h2>1. Customer churn prediction</h2><span class="date">Jan 2026 – Mar 2026</span></div>
+<p class="sub">ML pipeline that predicts which telecom customers are likely to leave.</p>
+<div class="unit pre" role="button" tabindex="0" aria-pressed="false"><div class="flow" style="--d:7s;--s:1s"><div class="st" style="--i:0">Raw data</div><div class="st" style="--i:1">Clean</div><div class="st" style="--i:2">Encode &amp; scale</div><div class="st" style="--i:3">SMOTE</div><div class="st" style="--i:4">Train models</div><div class="st" style="--i:5">Tune</div><div class="st" style="--i:6">Evaluate</div></div>
+<div class="track" style="--d:7s"><b></b></div></div>
+<div class="row">
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false"><h3>SMOTE balancing</h3><svg viewBox="0 0 260 130" role="img" aria-label="Dots drifting while synthetic churn samples appear"><g id="dots"></g><text class="tx" x="130" y="124" text-anchor="middle">amber = churned, new dots = synthetic</text></svg></div>
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false"><h3>Models training</h3><div style="padding-top:14px"><div class="mb"><span>LogReg</span><div><i style="--t:3s"></i></div></div><div class="mb"><span>Random Forest</span><div><i style="--t:4.5s"></i></div></div><div class="mb"><span>XGBoost</span><div><i style="--t:6s"></i></div></div><div class="mb"><span>GridSearch</span><div><i style="--t:7.5s;background:var(--c)"></i></div></div></div></div>
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false"><h3>ROC curve</h3><svg viewBox="0 0 260 130" role="img" aria-label="ROC curve being drawn"><line x1="20" y1="110" x2="240" y2="110" style="stroke:var(--g)"/><line x1="20" y1="110" x2="20" y2="12" style="stroke:var(--g)"/><line x1="20" y1="110" x2="240" y2="12" style="stroke:var(--g)" stroke-dasharray="4 4"/><path class="ln2" pathLength="1" d="M20 110 C 30 40, 70 22, 240 14" fill="none" style="stroke:var(--b)" stroke-width="3" stroke-linecap="round"/><circle r="5" style="fill:var(--c)"><animateMotion dur="5s" repeatCount="indefinite" path="M20 110 C 30 40, 70 22, 240 14" keyPoints="0;1;1" keyTimes="0;.6;1" calcMode="linear"/></circle><text class="tx" x="130" y="124" text-anchor="middle">false positives →</text></svg></div>
+</div>
+<span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">Seaborn</span></section>
+
+<section class="card"><div class="top"><h2>2. Image classification with a CNN</h2><span class="date">Apr 2026 – Jun 2026</span></div>
+<p class="sub">Deep learning model that recognises 10 kinds of images (CIFAR-10).</p>
+<div class="unit pre" role="button" tabindex="0" aria-pressed="false"><div class="flow" style="--d:7s;--s:1s"><div class="st" style="--i:0">Images</div><div class="st" style="--i:1">Augment</div><div class="st" style="--i:2">Conv layers</div><div class="st" style="--i:3">Dropout &amp; BN</div><div class="st" style="--i:4">Softmax</div><div class="st" style="--i:5">Transfer learning</div><div class="st" style="--i:6">Evaluate</div></div>
+<div class="track" style="--d:7s"><b></b></div></div>
+<div class="row">
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false" data-k="cv"><h3>Convolution filter</h3><svg id="cv" viewBox="0 0 260 150" role="img" aria-label="A filter sliding over an image to build a feature map"></svg></div>
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false"><h3>Signal through layers</h3><svg id="nn" viewBox="0 0 260 150" role="img" aria-label="Signals travelling through neural network layers"></svg></div>
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false" data-k="sm"><h3>Softmax output</h3><div class="sm" id="sm"></div><div class="pred" id="pred">Prediction: …</div></div>
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false"><h3>Loss while training</h3><svg viewBox="0 0 260 130" role="img" aria-label="Training and validation loss curves"><line x1="20" y1="110" x2="240" y2="110" style="stroke:var(--g)"/><line x1="20" y1="110" x2="20" y2="12" style="stroke:var(--g)"/><path class="ln2" pathLength="1" d="M20 18 C 60 90, 100 104, 240 108" fill="none" style="stroke:var(--a)" stroke-width="3" stroke-linecap="round"/><path class="ln2" pathLength="1" d="M20 26 C 70 78, 110 92, 240 98" fill="none" style="stroke:var(--c)" stroke-width="3" stroke-linecap="round"/><text class="tx" x="150" y="40" style="fill:var(--a)">train</text><text class="tx" x="150" y="54" style="fill:var(--c)">validation</text><text class="tx" x="130" y="124" text-anchor="middle">epochs →</text></svg></div>
+</div>
+<span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">NumPy</span><span class="tag">MobileNetV2</span><span class="tag">Colab</span></section>
+
+<section class="card"><div class="top"><h2>3. Sales &amp; inventory analytics dashboard</h2><span class="date">Jul 2026 – Sep 2026</span></div>
+<p class="sub">SQL and Python analysis of sales, stock movement and demand across regions.</p>
+<div class="unit pre" role="button" tabindex="0" aria-pressed="false"><div class="flow" style="--d:5s;--s:1s"><div class="st" style="--i:0">Load data</div><div class="st" style="--i:1">SQL queries</div><div class="st" style="--i:2">Clean</div><div class="st" style="--i:3">KPIs</div><div class="st" style="--i:4">Dashboard</div></div>
+<div class="track" style="--d:5s"><b></b></div></div>
+<div class="row">
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false"><h3>Sales trend (sample)</h3><svg viewBox="0 0 260 130" role="img" aria-label="Animated bars and trend line of sample sales"><line x1="14" y1="110" x2="250" y2="110" style="stroke:var(--g)"/><g id="bars"></g><polyline class="ln2" pathLength="1" points="31,85 61,72 91,78 121,52 151,58 181,38 211,44 241,24" fill="none" style="stroke:var(--c)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false"><h3>Region share (sample)</h3><svg viewBox="0 0 260 130" role="img" aria-label="Rotating donut chart of sample region share"><g class="spin" transform="rotate(-90 130 65)"><circle cx="130" cy="65" r="36" fill="none" style="stroke:var(--a)" stroke-width="16" stroke-dasharray="101.8 124.4"/><circle cx="130" cy="65" r="36" fill="none" style="stroke:var(--b)" stroke-width="16" stroke-dasharray="79.2 147" stroke-dashoffset="-101.8"/><circle cx="130" cy="65" r="36" fill="none" style="stroke:var(--c)" stroke-width="16" stroke-dasharray="45.2 181" stroke-dashoffset="-181"/></g><text class="tx" x="130" y="124" text-anchor="middle">by region</text></svg></div>
+<div class="vis unit" role="button" tabindex="0" aria-pressed="false" data-k="kp"><h3>KPIs (sample)</h3><div class="kp"><div>Revenue<b id="k1">0</b></div><div>Top seller units<b id="k2">0</b></div><div>Stock-out rate<b id="k3">0</b></div></div></div>
+</div>
+<span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">Excel</span><span class="tag">Matplotlib</span></section>
+
+<footer>Illustrative animations of each project’s workflow. Charts and numbers are sample visuals, not real results.</footer>
+</div>
+<script>
+var N="http://www.w3.org/2000/svg",RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function mk(t,a,p){var e=document.createElementNS(N,t);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+var d=document.getElementById('dots');
+[[30,25],[75,60],[120,30],[170,70],[45,90],[210,35],[235,75],[100,95],[190,100],[150,50],[60,45],[225,105]].forEach(function(p,i){mk('circle',{cx:p[0],cy:p[1],r:6,class:'dr',style:'fill:var(--g);--i:'+i+';--dx:'+(i%2?6:-6)+'px;--dy:'+(i%3?5:-5)+'px'},d)});
+[[85,45],[205,55],[140,85]].forEach(function(p,i){mk('circle',{cx:p[0],cy:p[1],r:6,class:'dr',style:'fill:var(--c);--i:'+i+';--dx:5px;--dy:-5px'},d)});
+[[105,70],[60,70],[180,40],[225,90],[150,105],[30,50],[250,45],[120,55]].forEach(function(p,i){mk('circle',{cx:p[0],cy:p[1],r:6,class:'syn',style:'fill:var(--c);--i:'+i},d)});
+var cv=document.getElementById('cv'),ic=[],oc=[];
+for(var r=0;r<8;r++)for(var c=0;c<8;c++)mk('rect',{x:8+c*14,y:8+r*14,width:13,height:13,rx:2,style:'fill:var(--a);opacity:'+(0.15+((r*3+c*5)%7)/10)},cv);
+for(r=0;r<6;r++)for(c=0;c<6;c++)oc.push(mk('rect',{x:150+c*14,y:22+r*14,width:13,height:13,rx:2,style:'fill:var(--b);opacity:0'},cv));
+var kr=mk('rect',{x:8,y:8,width:42,height:42,rx:3,fill:'none',style:'stroke:var(--c)','stroke-width':'2.5'},cv);
+mk('text',{x:64,y:140,class:'tx','text-anchor':'middle'},cv).textContent='image';
+mk('text',{x:192,y:140,class:'tx','text-anchor':'middle'},cv).textContent='feature map';
+var ki=0;function ks(){var r=Math.floor(ki/6),c=ki%6;if(ki==0)oc.forEach(function(o){o.style.opacity=0});kr.setAttribute('x',8+c*14);kr.setAttribute('y',8+r*14);oc[ki].style.opacity=0.25+0.75*(((r*7+c*3)%5)/4);ki=(ki+1)%36}
+var nn=document.getElementById('nn'),L=[3,5,5,4,3],xs=[25,80,135,190,240],pos=[];
+L.forEach(function(n,l){pos[l]=[];for(var i=0;i<n;i++)pos[l].push([xs[l],70+(i-(n-1)/2)*24])});
+for(var l=0;l<4;l++)pos[l].forEach(function(a){pos[l+1].forEach(function(b){mk('line',{x1:a[0],y1:a[1],x2:b[0],y2:b[1],style:'stroke:var(--g)','stroke-opacity':'.3'},nn)})});
+pos.forEach(function(col,l){col.forEach(function(p){mk('circle',{cx:p[0],cy:p[1],r:7,class:'nd',style:'fill:'+(l==0?'var(--b)':l==4?'var(--c)':'var(--a)')+';--l:'+l},nn)})});
+for(l=0;l<4;l++){var a=pos[l][l%L[l]],b=pos[l+1][(l+1)%L[l+1]];var pk=mk('circle',{r:3.5,opacity:0,style:'fill:var(--fg)'},nn);
+mk('animateMotion',{path:'M'+a[0]+' '+a[1]+' L'+b[0]+' '+b[1],dur:'2.4s',begin:(l*0.6)+'s',repeatCount:'indefinite'},pk);
+mk('animate',{attributeName:'opacity',values:'0;1;1;0',keyTimes:'0;.1;.8;1',dur:'2.4s',begin:(l*0.6)+'s',repeatCount:'indefinite'},pk)}
+mk('text',{x:130,y:140,class:'tx','text-anchor':'middle'},nn).textContent='input → hidden → output';
+var sm=document.getElementById('sm'),cls=['plane','car','bird','cat','deer','dog','frog','horse','ship','truck'],bars=[];
+cls.forEach(function(){bars.push(sm.appendChild(document.createElement('i')))});
+function soft(){var w=Math.floor(Math.random()*10);bars.forEach(function(b,i){b.style.height=(i==w?65+Math.random()*30:4+Math.random()*20)+'%';b.className=i==w?'w':''});document.getElementById('pred').textContent='Prediction: '+cls[w]}
+var bg=document.getElementById('bars');[45,60,38,75,62,88,70,95].forEach(function(v,i){mk('rect',{x:21+i*30,y:110-v,width:20,height:v,rx:3,class:'bar',style:'fill:var(--a);--i:'+i},bg)});
+function cnt(id,to,f){var e=document.getElementById(id),t0=performance.now();(function s(n){var p=Math.min(1,(n-t0)/1800),v=to*(1-Math.pow(1-p,3));e.textContent=f(v);if(p<1)requestAnimationFrame(s)})(t0)}
+function kp(){cnt('k1',124,function(v){return '₹'+Math.round(v)+'k'});cnt('k2',860,function(v){return Math.round(v)});cnt('k3',6.2,function(v){return v.toFixed(1)+'%'})}
+function fc(){oc.forEach(function(o,i){var r=Math.floor(i/6),c=i%6;o.style.opacity=0.25+0.75*(((r*7+c*3)%5)/4)});kr.setAttribute('x',8);kr.setAttribute('y',8)}
+function fk(){document.getElementById('k1').textContent='₹124k';document.getElementById('k2').textContent='860';document.getElementById('k3').textContent='6.2%'}
+soft();fc();fk();
+var T={},H={cv:[function(){ki=0;T.cv=setInterval(ks,170)},function(){clearInterval(T.cv);fc()}],sm:[function(){soft();T.sm=setInterval(soft,1900)},function(){clearInterval(T.sm)}],kp:[function(){kp();T.kp=setInterval(kp,5000)},function(){clearInterval(T.kp);fk()}]};
+document.querySelectorAll('.unit').forEach(function(u){var sv=u.querySelectorAll('svg');sv.forEach(function(x){x.pauseAnimations()});
+function tg(){var on=u.classList.toggle('on');u.setAttribute('aria-pressed',on);sv.forEach(function(x){if(on){x.unpauseAnimations()}else{x.pauseAnimations();x.setCurrentTime(0)}});var h=H[u.dataset.k];if(h&&!RM)h[on?0:1]()}
+u.onclick=tg;u.onkeydown=function(e){if(e.key=='Enter'||e.key==' '){e.preventDefault();tg()}}});
+</script></body></html>
