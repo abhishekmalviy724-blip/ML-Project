@@ -506,3 +506,25 @@ prediction = loaded_model.predict(new_patient)
 
 print("Predicted Test Result:", prediction[0])
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+from common_imports import *
+
+a = pd.read_csv('healthcare_dataset.csv')
+
+X = a.select_dtypes('number')
+y = a["Test Results"]
+
+X = X.fillna(X.mean())
+y = y.fillna(y.mode().iloc[0])
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+r = RandomForestClassifier()
+r.fit(X_train, y_train)
+
+pred = r.predict(X_test)
+
+print(accuracy_score(y_test, pred))
+print(confusion_matrix(y_test, pred))
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________
