@@ -528,3 +528,67 @@ pred = r.predict(X_test)
 print(accuracy_score(y_test, pred))
 print(confusion_matrix(y_test, pred))
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________
+from common_imports import *
+
+df = pd.read_csv('healthcare_dataset.csv')
+
+X = df.drop('Test Results', axis=1)
+y = df['Test Results']
+
+num_cols = X.select_dtypes(include='number').columns
+cat_cols = X.select_dtypes(include='object').columns
+
+num_pipeline = Pipeline([
+    ('imputer', SimpleImputer(strategy='mean')),
+    ('scaler', StandardScaler())
+])
+
+cat_pipeline = Pipeline([
+    ('imputer', SimpleImputer(strategy='most_frequent')),
+    ('encoder', OneHotEncoder(handle_unknown='ignore'))
+])
+
+preprocessor = ColumnTransformer([
+    ('num', num_pipeline, num_cols),
+    ('cat', cat_pipeline, cat_cols)
+])
+
+pipeline = Pipeline([
+    ('preprocessor', preprocessor),
+    ('model', RandomForestClassifier(random_state=42))
+])
+
+param_grid = {
+    'model__n_estimators': [100, 200, 300],
+    'model__max_depth': [None, 10, 20, 30],
+    'model__min_samples_split': [2, 5, 10],
+    'model__min_samples_leaf': [1, 2, 4]
+}
+
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+search = RandomizedSearchCV(
+    pipeline,
+    param_distributions=param_grid,
+    n_iter=10,
+    cv=cv,
+    scoring='accuracy',
+    n_jobs=-1,
+    random_state=42
+)
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, stratify=y, random_state=42
+)
+
+search.fit(X_train, y_train)
+
+best_model = search.best_estimator_
+
+y_pred = best_model.predict(X_test)
+
+print("Best Parameters:", search.best_params_)
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("Classification Report:\n", classification_report(y_test, y_pred))
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________
